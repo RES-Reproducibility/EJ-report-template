@@ -1,15 +1,32 @@
 ---
-title: "EJ Reproducibility Report"
-format: 
-    html: default
+title: "Economic Journal Reproducibility Report"
+format:
+    html:
+        toc: true
+        title-block-banner: "#EFEDDE"
+        title-block-banner-color: "#000000"
     odt: default
     docx: default
+    typst: default
 editor: source
 date: today
 date-format: long
+filters:
+    - at: post-finalize
+      path: suppress-titleblock.lua
 ---
 
-![](img/banner.png){fig-align="top"}
+![](img/banner.png){fig-align="top" width="100%"}
+
+```{=openxml}
+<w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t>Economic Journal Reproducibility Report</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Subtitle"/></w:pPr><w:r><w:t>{{< meta date >}}</w:t></w:r></w:p>
+```
+
+```{=typst}
+#align(center)[#block(inset: 2em)[#text(weight: "bold", size: 1.5em)[Economic Journal Reproducibility Report]]]
+#align(center)[#block(inset: 1em)[{{< meta date >}}]]
+```
 
 
 
@@ -29,16 +46,17 @@ date-format: long
     ```
     ├── 1-paper
     ├── 2-appendices
+    ├── README.pdf
     ├── 3-replication-package.zip
     └── 4-confidential-data-not-for-publication.zip  (Optional)
     ```
 
-The folder `3-replication-package` contains a `ReadMe` file, which is  adequate and includes **all** of the following items:
+The `ReadMe` is adequate and includes **all** of the following items:
 
 -   [ ] It is in PDF format.
 -   [ ] Description of the content of the replication package.
--   [ ] Data availability statement (description of the origin of the data and how to obtain access to them)
--   [ ] A Statement about Rights: 
+-   [ ] Data availability statement (description of the origin of all *raw* data and how to obtain access to them)
+-   [ ] A Statement about Rights (as relevant): 
         
     > 1. I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
     > 2. I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permissions are documented in the LICENSE.txt file (if applicable).
@@ -57,6 +75,23 @@ Are the data correctly cited:
 -   [ ] In the paper.
 -   [ ] In the `ReadMe`.
 -   [ ] Not applicable (the paper is not empirical).
+
+Is the source of each dataset clearly documented, i.e. a DOI where available, or otherwise a full and verifiable citation to the raw data including an access date if web-based?
+
+-   [ ] Yes.
+-   [ ] No.
+
+::: {.callout-warning}
+**If no:** please list below the datasets whose source is not clearly documented. Remove this callout prior to sending the report.
+:::
+
+Datasets with unclear sourcing:
+
+| Dataset | Source / Citation | Notes |
+|---------|--------------------|-------|
+|         |                    |       |
+|         |                    |       |
+|         |                    |       |
 
 ### Used Datasets
 
@@ -88,21 +123,25 @@ Replicator's computational setup:
 1. Operating System (e.g. _Windows 10_ or _Mac OS 13.4_ or _nuvolos_):
 2. CPU (e.g. _Apple M1 Pro_ or _Intel Core i7_):
 3. RAM (e.g. _16 GB_):
-4. Software version (e.g. _Stata 16 IC_ or _R 4.2.1_ or _Matlab 2023a_ etc):
+4. Software version (e.g. _Stata 18  MP_ or _R 4.5.2_ or _Matlab 2025a_ etc):
 
 ## Does the package run through?
 
 -   [ ] Yes.
 -   [ ] No.
 
-*If no, please provide comments here.*
+::: {.callout-warning}
+**If no:** please provide comments here. Remove this callout prior to sending the report.
+:::
 
 ## Does it produce the results in the paper?
 
 -   [ ] Yes.
 -   [ ] No.
 
-*If no, please provide comments here. Inserting screenshots or textual output from the package next to expected output from the paper is helpful for authors, so please consider including this here.*
+::: {.callout-warning}
+**If no:** please provide comments here. Inserting screenshots or textual output from the package next to expected output from the paper is helpful for authors, so please consider including this here. Remove this callout prior to sending the report.
+:::
 
 
 
